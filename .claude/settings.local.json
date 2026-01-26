@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(findstr:*)",
+      "Bash(identify:*)",
+      "Bash(powershell -Command \"Get-Item ''c:\\\\Users\\\\Arkus Nexus\\\\Desktop\\\\WeWash Landing Page\\\\images\\\\*'' | Select-Object Name, Length\")"
+    ]
+  }
+}
