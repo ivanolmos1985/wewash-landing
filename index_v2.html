@@ -3,33 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeWash | Limpieza de Colchones y Salas en Monterrey</title>
-    <meta name="description" content="Limpieza profesional de colchones, salas y tapetes en Monterrey. Respuesta en 1 hora, cotización sin costo. Contáctanos por WhatsApp.">
+    <title>WeWash | Limpieza Profesional de Colchones y Salas en Monterrey</title>
+    <meta name="description" content="Limpieza profesional de colchones, salas y tapetes en Monterrey y área metropolitana. Respuesta inmediata, cotización sin costo por WhatsApp. Servicio a domicilio garantizado.">
+    <meta name="keywords" content="limpieza de colchones Monterrey, limpieza de salas Monterrey, lavado de tapetes Monterrey, limpieza profesional a domicilio, WeWash, limpieza de muebles, limpieza profunda, eliminación de ácaros, lavado de sofás">
+    <meta name="author" content="WeWash">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://wewash.mx/">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="WeWash | Limpieza Profesional de Colchones y Salas en Monterrey">
+    <meta property="og:description" content="Especialistas en limpieza profunda de colchones, salas y tapetes. Respuesta inmediata por WhatsApp. Servicio a domicilio en Monterrey y área metropolitana.">
+    <meta property="og:url" content="https://wewash.mx/">
+    <meta property="og:image" content="https://wewash.mx/images/We Wash Logo.png">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:site_name" content="WeWash">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WeWash | Limpieza Profesional en Monterrey">
+    <meta name="twitter:description" content="Limpieza profunda de colchones, salas y tapetes. Cotización inmediata sin costo.">
+
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "WeWash",
+        "description": "Servicio profesional de limpieza de colchones, salas y tapetes en Monterrey y área metropolitana",
+        "url": "https://wewash.mx",
+        "telephone": "+528186597675",
+        "email": "contacto@wewash.mx",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Monterrey",
+            "addressRegion": "Nuevo León",
+            "addressCountry": "MX"
+        },
+        "areaServed": [
+            "Monterrey", "San Pedro Garza García", "San Nicolás de los Garza",
+            "Guadalupe", "Santa Catarina", "Apodaca", "Escobedo", "Juárez"
+        ],
+        "priceRange": "$$",
+        "openingHours": "Mo-Sa 08:00-20:00",
+        "sameAs": [
+            "https://www.instagram.com/wewashmty",
+            "https://www.facebook.com/wewashmty"
+        ],
+        "serviceType": ["Limpieza de colchones", "Limpieza de salas", "Lavado de tapetes"]
+    }
+    </script>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Tailwind Config personalizado -->
+    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        cyan: {
-                            wewash: '#094fa2',
+                        primary: {
+                            DEFAULT: '#094fa2',
+                            light: '#0a6fd4',
+                            dark: '#073d7d',
                         },
-                        orange: {
-                            wewash: '#dbc02d',
+                        accent: {
+                            DEFAULT: '#dbc02d',
+                            light: '#e8d04a',
+                            dark: '#c5ab1e',
                         },
-                        green: {
-                            wewash: '#094fa2',
+                        dark: {
+                            DEFAULT: '#0a1628',
+                            light: '#111f3a',
+                            lighter: '#1a2d4d',
                         },
                         gray: {
                             wewash: '#1F2937',
-                            light: '#F9FAFB',
                         }
                     },
                     fontFamily: {
@@ -42,767 +95,1313 @@
     </script>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
             color: #1F2937;
             background-color: #FFFFFF;
+            overflow-x: hidden;
         }
-
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Poppins', sans-serif;
+        }
+
+        /* ===================== NAVBAR ===================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: transparent;
+        }
+        .navbar.scrolled {
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+        .nav-link {
+            position: relative;
+            color: rgba(255,255,255,0.8);
+            transition: color 0.3s;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .nav-link:hover { color: #dbc02d; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #dbc02d;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        /* ===================== HERO ===================== */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0a1628 0%, #094fa2 50%, #073d7d 100%);
+            overflow: hidden;
+        }
+        .hero-bg-pattern {
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(ellipse at 70% 50%, rgba(219, 192, 45, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(9, 79, 162, 0.3) 0%, transparent 50%);
+        }
+        .hero-image-container {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 55%;
+            overflow: hidden;
+        }
+        .hero-image-container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, #0a1628 0%, rgba(10, 22, 40, 0.4) 40%, rgba(10, 22, 40, 0.1) 100%);
+            z-index: 1;
+        }
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+        @media (max-width: 768px) {
+            .hero-image-container {
+                width: 100%;
+                opacity: 0.25;
+            }
+            .hero-image-container::before {
+                background: linear-gradient(180deg, rgba(10, 22, 40, 0.6) 0%, rgba(10, 22, 40, 0.8) 100%);
+            }
+        }
+
+        /* Floating shapes */
+        .hero-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            animation: float-shape 8s ease-in-out infinite;
+        }
+        @keyframes float-shape {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.05); }
+        }
+
+        /* ===================== BUTTONS ===================== */
+        .btn-primary {
+            background: linear-gradient(135deg, #dbc02d 0%, #c5ab1e 100%);
+            color: #0a1628;
+            padding: 14px 32px;
+            border-radius: 12px;
             font-weight: 700;
-        }
-
-        #hero h1 {
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-        }
-
-        .subtitle {
             font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-        }
-
-        .btn-whatsapp {
-            background-color: #094fa2;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
+            font-size: 16px;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
             cursor: pointer;
-            font-size: 16px;
-        }
-
-        .btn-whatsapp:hover {
-            background-color: #20BA58;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-        }
-
-        .btn-secondary {
-            background-color: #F9FAFB;
-            color: #dbc02d;
-            padding: 12px 24px;
-            border-radius: 8px;
             text-decoration: none;
+            box-shadow: 0 4px 15px rgba(219, 192, 45, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(219, 192, 45, 0.5);
+        }
+        .btn-outline {
+            background: transparent;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 12px;
             font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            border: 2px solid #dbc02d;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(255,255,255,0.3);
             cursor: pointer;
-            font-size: 16px;
+            text-decoration: none;
         }
-
-        .btn-secondary:hover {
-            background-color: #dbc02d;
-            color: white;
+        .btn-outline:hover {
+            border-color: #dbc02d;
+            color: #dbc02d;
+            transform: translateY(-3px);
         }
-
-        .service-card {
-            background: white;
-            border: 1px solid #E5E7EB;
-            border-radius: 12px;
-            padding: 24px;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .service-card:hover {
-            border-color: #06B6D4;
-            box-shadow: 0 8px 24px rgba(6, 182, 212, 0.15);
-            transform: translateY(-4px);
-        }
-
-        .process-step {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            border: 2px solid #F0F0F0;
-            transition: all 0.3s ease;
-        }
-
-        .process-step:hover {
-            border-color: #06B6D4;
-            background: #F0FAFB;
-        }
-
-        .testimonial-card {
-            background: white;
-            border: 1px solid #E5E7EB;
-            border-radius: 12px;
-            padding: 24px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-        }
-
-        .floating-whatsapp {
+        .btn-whatsapp-float {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
+            bottom: 28px;
+            right: 28px;
             z-index: 1000;
-            animation: float 3s ease-in-out infinite;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse-whatsapp 2s infinite;
         }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .floating-whatsapp:hover {
+        .btn-whatsapp-float:hover {
+            transform: scale(1.1);
             animation: none;
+            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.6);
+        }
+        @keyframes pulse-whatsapp {
+            0%, 100% { box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 6px 40px rgba(37, 211, 102, 0.7); }
         }
 
-        .faq-item {
-            border-bottom: 1px solid #E5E7EB;
-            padding: 20px 0;
+        /* ===================== ANIMATIONS ===================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+
+        /* ===================== CARDS ===================== */
+        .service-card-v3 {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 28px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card-v3::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #094fa2, #dbc02d);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            transform-origin: left;
+        }
+        .service-card-v3:hover::before {
+            transform: scaleX(1);
+        }
+        .service-card-v3:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(9, 79, 162, 0.12);
+        }
+        .service-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(9, 79, 162, 0.08), rgba(9, 79, 162, 0.04));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            transition: all 0.4s ease;
+        }
+        .service-card-v3:hover .service-icon-wrapper {
+            background: linear-gradient(135deg, #094fa2, #0a6fd4);
+            transform: scale(1.05);
+        }
+        .service-card-v3:hover .service-icon-wrapper svg {
+            color: white !important;
         }
 
-        .faq-item:last-child {
-            border-bottom: none;
+        /* ===================== PROCESS TIMELINE ===================== */
+        .timeline-connector {
+            position: relative;
+        }
+        .timeline-connector::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -30px;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #094fa2, #dbc02d);
+        }
+        @media (max-width: 768px) {
+            .timeline-connector::after { display: none; }
         }
 
-        .faq-toggle {
+        /* ===================== FAQ ===================== */
+        .faq-item-v3 {
+            border: 1px solid #f0f0f0;
+            border-radius: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .faq-item-v3:hover {
+            border-color: #094fa2;
+        }
+        .faq-item-v3.active {
+            border-color: #094fa2;
+            box-shadow: 0 4px 20px rgba(9, 79, 162, 0.08);
+        }
+        .faq-toggle-v3 {
+            padding: 20px 24px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease;
+            background: white;
+            border-radius: 16px;
+            transition: background 0.3s ease;
         }
-
-        .faq-toggle:hover {
-            color: #06B6D4;
-        }
-
-        .faq-content {
+        .faq-toggle-v3:hover { background: #fafbfc; }
+        .faq-content-v3 {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
-            margin-top: 12px;
-            line-height: 1.6;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+            background: #fafbfc;
+            border-radius: 0 0 16px 16px;
         }
-
-        .faq-item.active .faq-content {
+        .faq-item-v3.active .faq-content-v3 {
             max-height: 300px;
         }
-
-        .reassurance-badge {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            color: #10B981;
-            margin: 8px 0;
+        .faq-chevron {
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        .faq-item-v3.active .faq-chevron {
+            transform: rotate(180deg);
         }
 
-        /* Hero Section - Handled inline in HTML */
+        /* ===================== SECTION DIVIDERS ===================== */
+        .wave-divider {
+            position: relative;
+            margin-top: -1px;
+        }
+        .wave-divider svg {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
 
-        /* Mobile styles */
+        /* ===================== LEAD FORM ===================== */
+        .lead-form-section {
+            background: linear-gradient(135deg, #0a1628 0%, #094fa2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .lead-form-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(ellipse at 30% 50%, rgba(219, 192, 45, 0.06) 0%, transparent 60%);
+        }
+        .form-input {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 2px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.06);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        .form-input::placeholder {
+            color: rgba(255,255,255,0.4);
+        }
+        .form-input:focus {
+            border-color: #dbc02d;
+            background: rgba(255,255,255,0.1);
+            box-shadow: 0 0 0 4px rgba(219, 192, 45, 0.1);
+        }
+        /* Select dropdown styling */
+        select.form-input {
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 44px;
+        }
+        select.form-input option {
+            background: #1a2d4d;
+            color: white;
+            padding: 12px 16px;
+            font-size: 15px;
+            border: none;
+        }
+        select.form-input option:hover,
+        select.form-input option:checked {
+            background: #094fa2;
+            color: white;
+        }
+        select.form-input option:disabled {
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* ===================== COUNTER ANIMATION ===================== */
+        .counter-value {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            background: linear-gradient(135deg, #094fa2, #0a6fd4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ===================== FOOTER ===================== */
+        .footer-gradient {
+            background: linear-gradient(180deg, #0a1628 0%, #060e1a 100%);
+        }
+
+        /* ===================== MOBILE MENU ===================== */
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: rgba(10, 22, 40, 0.98);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        .mobile-menu a {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .mobile-menu a:hover { color: #dbc02d; }
+
+        /* Hamburger */
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: white;
+            margin: 6px 0;
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* ===================== BADGE PILL ===================== */
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* ===================== MOBILE RESPONSIVENESS ===================== */
         @media (max-width: 768px) {
-            .floating-whatsapp {
+            .hero-section {
+                min-height: 100svh; /* safe viewport height for mobile */
+            }
+            .btn-primary, .btn-outline {
+                padding: 12px 24px;
+                font-size: 15px;
+                width: 100%;
+                justify-content: center;
+            }
+            .btn-whatsapp-float {
                 bottom: 20px;
                 right: 20px;
+                width: 56px;
+                height: 56px;
             }
-
-            h1 {
-                font-size: 28px;
-                line-height: 1.2;
+            .service-card-v3 {
+                padding: 28px 20px;
             }
-
-            h2 {
-                font-size: 24px;
+            .form-input {
+                font-size: 16px; /* prevents iOS zoom on focus */
             }
-
-            h3 {
-                font-size: 20px;
-            }
-
-            .service-card, .process-step, .testimonial-card {
-                margin-bottom: 16px;
-            }
+            h1 { font-size: clamp(2rem, 8vw, 3rem); }
+            h2 { font-size: clamp(1.75rem, 6vw, 2.5rem); }
         }
 
-        /* WebP fallback handled inline in hero HTML */
+        /* ===================== SHIMMER EFFECT ON PRIMARY BTN ===================== */
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        .btn-primary:hover::after {
+            left: 100%;
+        }
+
+        /* ===================== FOCUS STATES FOR ACCESSIBILITY ===================== */
+        .btn-primary:focus-visible,
+        .btn-outline:focus-visible,
+        .nav-link:focus-visible,
+        .form-input:focus-visible {
+            outline: 3px solid #dbc02d;
+            outline-offset: 2px;
+        }
     </style>
 </head>
 <body>
-    <!-- SECCIÓN 1: HERO (FULL-WIDTH BACKGROUND IMAGE WITH TEXT OVERLAY) -->
-    <section id="hero" class="relative py-12 md:py-24 min-h-screen md:min-h-[600px] bg-cover bg-no-repeat overflow-hidden"
-             style="background-image: linear-gradient(135deg, rgba(9, 79, 162, 0.85) 0%, rgba(9, 79, 162, 0.7) 40%, rgba(9, 79, 162, 0.3) 100%), url('images/hero-technician.webp'); background-position: center 12%;">
 
-        <!-- Fallback for non-WebP browsers and mobile styles -->
-        <style>
-            @supports not (background-image: url('*.webp')) {
-                #hero {
-                    background-image: linear-gradient(135deg, rgba(9, 79, 162, 0.85) 0%, rgba(9, 79, 162, 0.7) 40%, rgba(9, 79, 162, 0.3) 100%), url('images/hero-technician.jpg') !important;
-                    background-position: center 12% !important;
-                }
-            }
+    <!-- ============== NAVBAR ============== -->
+    <nav class="navbar" id="navbar">
+        <div class="container mx-auto px-6 md:px-12 max-w-7xl">
+            <div class="flex items-center justify-between h-24 md:h-28">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <img src="images/We Wash Logo.png" alt="WeWash - Limpieza Profesional en Monterrey" class="h-20 md:h-24 brightness-125 drop-shadow-lg">
+                </a>
 
-            /* Desktop: fixed background for parallax effect */
-            @media (min-width: 769px) {
-                #hero {
-                    background-attachment: fixed;
-                }
-            }
-
-            /* Mobile: scroll background to ensure image loads */
-            @media (max-width: 768px) {
-                #hero {
-                    background-attachment: scroll;
-                    background-position: center center !important;
-                }
-            }
-        </style>
-
-        <!-- Text Content Positioned Left -->
-        <div class="relative h-full flex items-center container mx-auto px-6 md:px-12 lg:px-16 max-w-6xl">
-            <div class="max-w-xl w-full">
-                <!-- Main Headline: SEO Local + Benefit -->
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight drop-shadow-lg">
-                    Limpieza Profesional de Colchones, Salas y Tapetes en Monterrey
-                </h1>
-
-                <!-- Subheadline: Benefit-driven -->
-                <p class="text-lg md:text-xl text-orange-wewash font-semibold mb-8 drop-shadow-md">
-                    Más limpios, más saludables, más rápido.
-                </p>
-
-                <!-- CTA Button -->
-                <div class="mb-8">
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#servicios" class="nav-link">Servicios</a>
+                    <a href="#proceso" class="nav-link">Proceso</a>
+                    <a href="#cotizar" class="nav-link">Cotizar</a>
+                    <a href="#faq" class="nav-link">FAQ</a>
                     <a href="https://wa.me/528186597675?text=Hola%2C%20quiero%20cotizar%20mis%20servicios%20de%20limpieza"
                        target="_blank"
-                       class="btn-whatsapp text-base md:text-lg px-8 py-4 inline-flex items-center gap-2 rounded-lg shadow-lg hover:shadow-xl transition">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 360 362" aria-label="WhatsApp">
+                       class="btn-primary text-sm px-6 py-3">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 360 362">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M307.546 52.5655C273.709 18.685 228.706 0.0171895 180.756 0C81.951 0 1.53846 80.404 1.50408 179.235C1.48689 210.829 9.74646 241.667 25.4319 268.844L0 361.736L95.0236 336.811C121.203 351.096 150.683 358.616 180.679 358.625H180.756C279.544 358.625 359.966 278.212 360 179.381C360.017 131.483 341.392 86.4547 307.546 52.5741V52.5655ZM180.756 328.354H180.696C153.966 328.346 127.744 321.16 104.865 307.589L99.4242 304.358L43.034 319.149L58.0834 264.168L54.5423 258.53C39.6304 234.809 31.749 207.391 31.7662 179.244C31.8006 97.1036 98.6334 30.2707 180.817 30.2707C220.61 30.2879 258.015 45.8015 286.145 73.9665C314.276 102.123 329.755 139.562 329.738 179.364C329.703 261.513 262.871 328.346 180.756 328.346V328.354ZM262.475 216.777C257.997 214.534 235.978 203.704 231.869 202.209C227.761 200.713 224.779 199.966 221.796 204.452C218.814 208.939 210.228 219.029 207.615 222.011C205.002 225.002 202.389 225.372 197.911 223.128C193.434 220.885 179.003 216.158 161.891 200.902C148.578 189.024 139.587 174.362 136.975 169.875C134.362 165.389 136.7 162.965 138.934 160.739C140.945 158.728 143.412 155.505 145.655 152.892C147.899 150.279 148.638 148.406 150.133 145.423C151.629 142.432 150.881 139.82 149.764 137.576C148.646 135.333 139.691 113.287 135.952 104.323C132.316 95.5909 128.621 96.777 125.879 96.6309C123.266 96.5019 120.284 96.4762 117.293 96.4762C114.302 96.4762 109.454 97.5935 105.346 102.08C101.238 106.566 89.6691 117.404 89.6691 139.441C89.6691 161.478 105.716 182.785 107.959 185.776C110.202 188.767 139.544 234.001 184.469 253.408C195.153 258.023 203.498 260.782 210.004 262.845C220.731 266.257 230.494 265.776 238.212 264.624C246.816 263.335 264.71 253.786 268.44 243.326C272.17 232.866 272.17 223.893 271.053 222.028C269.936 220.163 266.945 219.037 262.467 216.794L262.475 216.777Z"/>
                         </svg>
-                        Cotiza gratis por WhatsApp
+                        Cotizar Ahora
                     </a>
                 </div>
 
-                <!-- Micro-benefits: Scannable list -->
-                <div class="space-y-3">
-                    <div class="flex items-start gap-3">
-                        <svg class="w-6 h-6 flex-shrink-0 mt-0.5 drop-shadow" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true" style="color: #dbc02d;">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                <!-- Mobile Hamburger -->
+                <button class="md:hidden hamburger" id="hamburgerBtn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#servicios" onclick="closeMobile()">Servicios</a>
+        <a href="#proceso" onclick="closeMobile()">Proceso</a>
+        <a href="#cotizar" onclick="closeMobile()">Cotizar</a>
+        <a href="#faq" onclick="closeMobile()">FAQ</a>
+        <a href="https://wa.me/528186597675?text=Hola%2C%20quiero%20cotizar%20mis%20servicios%20de%20limpieza"
+           target="_blank"
+           class="btn-primary mt-4">
+            Cotizar por WhatsApp
+        </a>
+    </div>
+
+    <!-- ============== HERO ============== -->
+    <section class="hero-section" id="hero">
+        <!-- Background shapes -->
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-shape" style="width: 400px; height: 400px; background: #094fa2; top: -100px; right: 20%;"></div>
+        <div class="hero-shape" style="width: 300px; height: 300px; background: #dbc02d; bottom: -50px; left: 10%; animation-delay: 2s;"></div>
+
+        <!-- Hero Image (right side on desktop) -->
+        <div class="hero-image-container">
+            <picture>
+                <source srcset="images/hero-technician.webp" type="image/webp">
+                <img src="images/hero-technician.jpg" alt="Técnico profesional WeWash" loading="eager">
+            </picture>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 container mx-auto px-6 md:px-12 max-w-7xl pt-24">
+            <div class="max-w-2xl">
+                <!-- Badge -->
+                <div class="badge-pill bg-white/10 text-accent mb-6 reveal">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                    Servicio Profesional en Monterrey
+                </div>
+
+                <!-- Headline -->
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-[1.1] reveal delay-1">
+                    Tu hogar merece una
+                    <span class="text-accent">limpieza profunda</span>
+                    de verdad
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-lg md:text-xl text-white/70 mb-10 leading-relaxed max-w-lg reveal delay-2">
+                    Especialistas en colchones, salas y tapetes. Eliminamos lo que no ves: ácaros, bacterias y alérgenos.
+                </p>
+
+                <!-- CTAs -->
+                <div class="flex flex-wrap gap-4 mb-12 reveal delay-3">
+                    <a href="https://wa.me/528186597675?text=Hola%2C%20quiero%20cotizar%20mis%20servicios%20de%20limpieza"
+                       target="_blank"
+                       class="btn-primary text-base md:text-lg">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 360 362">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M307.546 52.5655C273.709 18.685 228.706 0.0171895 180.756 0C81.951 0 1.53846 80.404 1.50408 179.235C1.48689 210.829 9.74646 241.667 25.4319 268.844L0 361.736L95.0236 336.811C121.203 351.096 150.683 358.616 180.679 358.625H180.756C279.544 358.625 359.966 278.212 360 179.381C360.017 131.483 341.392 86.4547 307.546 52.5741V52.5655ZM180.756 328.354H180.696C153.966 328.346 127.744 321.16 104.865 307.589L99.4242 304.358L43.034 319.149L58.0834 264.168L54.5423 258.53C39.6304 234.809 31.749 207.391 31.7662 179.244C31.8006 97.1036 98.6334 30.2707 180.817 30.2707C220.61 30.2879 258.015 45.8015 286.145 73.9665C314.276 102.123 329.755 139.562 329.738 179.364C329.703 261.513 262.871 328.346 180.756 328.346V328.354ZM262.475 216.777C257.997 214.534 235.978 203.704 231.869 202.209C227.761 200.713 224.779 199.966 221.796 204.452C218.814 208.939 210.228 219.029 207.615 222.011C205.002 225.002 202.389 225.372 197.911 223.128C193.434 220.885 179.003 216.158 161.891 200.902C148.578 189.024 139.587 174.362 136.975 169.875C134.362 165.389 136.7 162.965 138.934 160.739C140.945 158.728 143.412 155.505 145.655 152.892C147.899 150.279 148.638 148.406 150.133 145.423C151.629 142.432 150.881 139.82 149.764 137.576C148.646 135.333 139.691 113.287 135.952 104.323C132.316 95.5909 128.621 96.777 125.879 96.6309C123.266 96.5019 120.284 96.4762 117.293 96.4762C114.302 96.4762 109.454 97.5935 105.346 102.08C101.238 106.566 89.6691 117.404 89.6691 139.441C89.6691 161.478 105.716 182.785 107.959 185.776C110.202 188.767 139.544 234.001 184.469 253.408C195.153 258.023 203.498 260.782 210.004 262.845C220.731 266.257 230.494 265.776 238.212 264.624C246.816 263.335 264.71 253.786 268.44 243.326C272.17 232.866 272.17 223.893 271.053 222.028C269.936 220.163 266.945 219.037 262.467 216.794L262.475 216.777Z"/>
                         </svg>
-                        <span class="text-white text-sm md:text-base drop-shadow">Respuesta inmediata</span>
+                        Cotiza Gratis por WhatsApp
+                    </a>
+                    <a href="#servicios" class="btn-outline text-base md:text-lg">
+                        Ver Servicios
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Trust badges -->
+                <div class="flex flex-wrap gap-6 reveal delay-4">
+                    <div class="flex items-center gap-2 text-white/60 text-sm">
+                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                        Respuesta inmediata
                     </div>
-                    <div class="flex items-start gap-3">
-                        <svg class="w-6 h-6 flex-shrink-0 mt-0.5 drop-shadow" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true" style="color: #dbc02d;">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    <div class="flex items-center gap-2 text-white/60 text-sm">
+                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+                            <path d="m9 12 2 2 4-4"/>
                         </svg>
-                        <span class="text-white text-sm md:text-base drop-shadow">Cotización sin compromiso</span>
+                        Servicio garantizado
                     </div>
-                    <div class="flex items-start gap-3">
-                        <svg class="w-6 h-6 flex-shrink-0 mt-0.5 drop-shadow" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true" style="color: #dbc02d;">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    <div class="flex items-center gap-2 text-white/60 text-sm">
+                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
-                        <span class="text-white text-sm md:text-base drop-shadow">Servicio garantizado a domicilio</span>
+                        Cotización sin costo
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 2: SERVICIOS (OPTIMIZADO - 3 ITEMS + CTA) -->
-    <section id="servicios" class="py-20 bg-white">
-        <div class="container mx-auto px-4 md:px-8 max-w-6xl">
+    <!-- Wave Divider -->
+    <div class="wave-divider">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0 80L60 73.3C120 66.7 240 53.3 360 46.7C480 40 600 40 720 46.7C840 53.3 960 66.7 1080 70C1200 73.3 1320 66.7 1380 63.3L1440 60V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V80Z" fill="white"/>
+        </svg>
+    </div>
+
+    <!-- ============== STATS COUNTER ============== -->
+    <section class="py-16 bg-white -mt-1">
+        <div class="container mx-auto px-6 md:px-12 max-w-7xl">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 reveal">
+                <div class="text-center">
+                    <div class="counter-value text-4xl md:text-5xl mb-2" data-target="500">0</div>
+                    <p class="text-gray-500 text-sm font-medium">Clientes satisfechos</p>
+                </div>
+                <div class="text-center">
+                    <div class="counter-value text-4xl md:text-5xl mb-2" data-target="5" data-suffix="+">0</div>
+                    <p class="text-gray-500 text-sm font-medium">Años de experiencia</p>
+                </div>
+                <div class="text-center">
+                    <div class="counter-value text-4xl md:text-5xl mb-2" data-target="100" data-suffix="%">0</div>
+                    <p class="text-gray-500 text-sm font-medium">Satisfacción garantizada</p>
+                </div>
+                <div class="text-center">
+                    <div class="counter-value text-4xl md:text-5xl mb-2" data-target="24" data-suffix="hrs">0</div>
+                    <p class="text-gray-500 text-sm font-medium">Garantía post-servicio</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== SERVICIOS ============== -->
+    <section id="servicios" class="py-20 md:py-28 bg-white">
+        <div class="container mx-auto px-6 md:px-12 max-w-7xl">
+            <!-- Section Header -->
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-4xl font-bold text-gray-wewash mb-4">
-                    Somos Especialistas en Limpieza Profunda
-                </h2>
-                <p class="text-lg md:text-xl text-gray-600 subtitle">
+                <div class="badge-pill bg-primary/5 text-primary mx-auto mb-4 reveal">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path d="M9.06 11.9l8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"/>
+                        <path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1.08 1.1 2.49 2.02 4 2.02 2.2 0 4-1.8 4-4.04a3.01 3.01 0 0 0-3-3.02z"/>
+                    </svg>
                     Nuestros Servicios
+                </div>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-gray-wewash mb-4 reveal delay-1">
+                    Somos Especialistas en<br>
+                    <span class="text-primary">Limpieza Profunda</span>
+                </h2>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto reveal delay-2">
+                    Tecnología profesional y productos certificados para resultados que se ven y se sienten
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <!-- Service Cards -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
                 <!-- Colchones -->
-                <div class="service-card">
-                    <svg class="w-12 h-12 mx-auto mb-4 text-cyan-wewash" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-label="Bed Double - Colchones service">
-                        <path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/>
-                        <path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/>
-                        <path d="M12 4v6"/>
-                        <path d="M2 18h20"/>
-                    </svg>
-                    <h3 class="text-2xl font-bold text-gray-wewash mb-3">Limpieza de Colchones</h3>
-                    <p class="text-sm text-gray-600 mb-4">Individual, Matrimonial, Queen y King</p>
-                    <p class="text-gray-700 text-sm leading-relaxed">
-                        Limpieza profunda que elimina ácaros, bacterias, manchas y malos olores. Tratamiento antialérgico. Secado garantizado en de 4-6 horas. Disponible en Monterrey y área metropolitana.
+                <div class="service-card-v3 reveal delay-1">
+                    <div class="service-icon-wrapper">
+                        <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/>
+                            <path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/>
+                            <path d="M12 4v6"/>
+                            <path d="M2 18h20"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-wewash mb-2">Limpieza de Colchones</h3>
+                    <p class="text-sm text-accent font-semibold mb-4">Individual, Matrimonial, Queen y King</p>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        Eliminamos ácaros, bacterias, manchas y malos olores con tratamiento antialérgico. Secado garantizado en 4-6 horas.
                     </p>
+                    <a href="https://wa.me/528186597675?text=Hola%2C%20quiero%20cotizar%20limpieza%20de%20colchones"
+                       target="_blank"
+                       class="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all">
+                        Cotizar ahora
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
                 </div>
 
                 <!-- Salas -->
-                <div class="service-card">
-                    <svg class="w-12 h-12 mx-auto mb-4 text-cyan-wewash" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-label="Armchair - Salas service">
-                        <path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3"/>
-                        <path d="M3 16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"/>
-                        <path d="M5 18v2"/>
-                        <path d="M19 18v2"/>
-                    </svg>
-                    <h3 class="text-2xl font-bold text-gray-wewash mb-3">Limpieza de todo tipo de Salas</h3>
-                    <p class="text-sm text-gray-600 mb-4">Sofás, love seats, sofás cama y escuadras</p>
-                    <p class="text-gray-700 text-sm leading-relaxed">
-                        Limpieza profunda de salas que elimina ácaros, bacterias, manchas y malos olores. Salas de 2, 3 piezas y tipo escuadra. Disponible en Monterrey y área metropolitana.
+                <div class="service-card-v3 reveal delay-2">
+                    <div class="service-icon-wrapper">
+                        <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3"/>
+                            <path d="M3 16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"/>
+                            <path d="M5 18v2"/>
+                            <path d="M19 18v2"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-wewash mb-2">Limpieza de Salas</h3>
+                    <p class="text-sm text-accent font-semibold mb-4">Sofás, love seats, sofás cama y escuadras</p>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        Limpieza profunda que elimina ácaros, bacterias, manchas y malos olores. Salas de 2, 3 piezas y tipo escuadra.
                     </p>
+                    <a href="https://wa.me/528186597675?text=Hola%2C%20quiero%20cotizar%20limpieza%20de%20salas"
+                       target="_blank"
+                       class="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all">
+                        Cotizar ahora
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
                 </div>
 
                 <!-- Tapetes -->
-                <div class="service-card">
-                    <svg class="w-12 h-12 mx-auto mb-4 text-cyan-wewash" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-label="Layers - Tapetes service">
-                        <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/>
-                        <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/>
-                        <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/>
+                <div class="service-card-v3 reveal delay-3">
+                    <div class="service-icon-wrapper">
+                        <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/>
+                            <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/>
+                            <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-wewash mb-2">Lavado de Tapetes</h3>
+                    <p class="text-sm text-accent font-semibold mb-4">Tapetes lisos, peludos y alfombras</p>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        Limpieza profunda con secado especializado y peinado para restaurar la fibra. Incluye recolección y entrega.
+                    </p>
+                    <a href="https://wa.me/528186597675?text=Hola%2C%20quiero%20cotizar%20lavado%20de%20tapetes"
+                       target="_blank"
+                       class="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all">
+                        Cotizar ahora
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Extra services note -->
+            <div class="text-center reveal">
+                <p class="text-gray-500 mb-2">
+                    <strong class="text-gray-wewash">También lavamos:</strong> Sillas de comedor, cojines decorativos y complementos
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== PROCESO ============== -->
+    <section id="proceso" class="py-20 md:py-28 bg-slate-50">
+        <div class="container mx-auto px-6 md:px-12 max-w-7xl">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <div class="badge-pill bg-primary/5 text-primary mx-auto mb-4 reveal">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                     </svg>
-                    <h3 class="text-2xl font-bold text-gray-wewash mb-3">Lavado de Tapetes</h3>
-                    <p class="text-sm text-gray-600 mb-4">Tapetes lisos, peludos y alfombras</p>
-                    <p class="text-gray-700 text-sm leading-relaxed">
-                        Limpieza profunda de tapetes que elimina ácaros, bacterias, manchas y malos olores. Incluye secado especializado y peinado para restaurar la fibra. Nuestro servicio incluye recolección y posterior entrega en Monterrey y área metropolitana.
+                    Proceso Simple
+                </div>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-gray-wewash mb-4 reveal delay-1">
+                    ¿Cómo <span class="text-primary">Funciona</span>?
+                </h2>
+                <p class="text-gray-500 text-lg max-w-xl mx-auto reveal delay-2">
+                    En 3 pasos sencillos tu mueble queda como nuevo
+                </p>
+            </div>
+
+            <!-- Steps -->
+            <div class="grid md:grid-cols-3 gap-8 md:gap-12">
+                <!-- Step 1 -->
+                <div class="text-center reveal delay-1">
+                    <div class="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-primary text-white mb-6 mx-auto shadow-lg shadow-primary/30">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        <span class="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-accent text-dark text-xs font-bold flex items-center justify-center">1</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-wewash mb-3">Envía Fotos</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed max-w-xs mx-auto">
+                        Manda 2-3 fotos de tu mueble por WhatsApp y te respondemos de inmediato
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center reveal delay-2">
+                    <div class="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-primary text-white mb-6 mx-auto shadow-lg shadow-primary/30">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                        </svg>
+                        <span class="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-accent text-dark text-xs font-bold flex items-center justify-center">2</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-wewash mb-3">Cotización Clara</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed max-w-xs mx-auto">
+                        Recibe tu cotización exacta sin sorpresas. Precio cerrado antes de empezar
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center reveal delay-3">
+                    <div class="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-accent text-dark mb-6 mx-auto shadow-lg shadow-accent/30">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+                            <path d="m9 12 2 2 4-4"/>
+                        </svg>
+                        <span class="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center">3</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-wewash mb-3">Garantía Total</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed max-w-xs mx-auto">
+                        Servicio profesional a domicilio con garantía de hasta 24 horas post servicio
                     </p>
                 </div>
             </div>
 
-            <!-- Ver más servicios -->
-            <div class="text-center mb-12">
-                <p class="text-gray-600 mb-4">
-                    <strong>También lavamos:</strong> Sillas de comedor, cojines decorativos y complementos
-                </p>
-                <a href="https://wa.me/528186597675?text=Hola%2C%20quiero%20conocer%20m%C3%A1s%20servicios"
+            <!-- CTA -->
+            <div class="text-center mt-16 reveal">
+                <a href="https://wa.me/528186597675?text=Hola%2C%20quiero%20cotizar%20mis%20servicios%20de%20limpieza"
                    target="_blank"
-                   class="btn-whatsapp text-lg px-8 py-3">
+                   class="btn-primary text-lg">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 360 362">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M307.546 52.5655C273.709 18.685 228.706 0.0171895 180.756 0C81.951 0 1.53846 80.404 1.50408 179.235C1.48689 210.829 9.74646 241.667 25.4319 268.844L0 361.736L95.0236 336.811C121.203 351.096 150.683 358.616 180.679 358.625H180.756C279.544 358.625 359.966 278.212 360 179.381C360.017 131.483 341.392 86.4547 307.546 52.5741V52.5655ZM180.756 328.354H180.696C153.966 328.346 127.744 321.16 104.865 307.589L99.4242 304.358L43.034 319.149L58.0834 264.168L54.5423 258.53C39.6304 234.809 31.749 207.391 31.7662 179.244C31.8006 97.1036 98.6334 30.2707 180.817 30.2707C220.61 30.2879 258.015 45.8015 286.145 73.9665C314.276 102.123 329.755 139.562 329.738 179.364C329.703 261.513 262.871 328.346 180.756 328.346V328.354ZM262.475 216.777C257.997 214.534 235.978 203.704 231.869 202.209C227.761 200.713 224.779 199.966 221.796 204.452C218.814 208.939 210.228 219.029 207.615 222.011C205.002 225.002 202.389 225.372 197.911 223.128C193.434 220.885 179.003 216.158 161.891 200.902C148.578 189.024 139.587 174.362 136.975 169.875C134.362 165.389 136.7 162.965 138.934 160.739C140.945 158.728 143.412 155.505 145.655 152.892C147.899 150.279 148.638 148.406 150.133 145.423C151.629 142.432 150.881 139.82 149.764 137.576C148.646 135.333 139.691 113.287 135.952 104.323C132.316 95.5909 128.621 96.777 125.879 96.6309C123.266 96.5019 120.284 96.4762 117.293 96.4762C114.302 96.4762 109.454 97.5935 105.346 102.08C101.238 106.566 89.6691 117.404 89.6691 139.441C89.6691 161.478 105.716 182.785 107.959 185.776C110.202 188.767 139.544 234.001 184.469 253.408C195.153 258.023 203.498 260.782 210.004 262.845C220.731 266.257 230.494 265.776 238.212 264.624C246.816 263.335 264.71 253.786 268.44 243.326C272.17 232.866 272.17 223.893 271.053 222.028C269.936 220.163 266.945 219.037 262.467 216.794L262.475 216.777Z"/>
                     </svg>
-                    Cotiza tu servicio ahora
+                    Empezar Ahora
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 3: TESTIMONIOS (MOVIDO ARRIBA) -->
-    <section id="testimonios" class="py-20 bg-gray-light">
-        <div class="container mx-auto px-4 md:px-8 max-w-6xl">
-            <!-- Stats -->
-            <div class="grid md:grid-cols-4 gap-6 mb-20">
-                <div class="text-center">
-                    <div class="text-4xl font-bold text-cyan-wewash mb-2">500+</div>
-                    <p class="text-gray-700 font-semibold">Clientes en Monterrey</p>
-                </div>
-                <div class="text-center">
-                    <svg class="w-12 h-12 mx-auto mb-2 text-cyan-wewash" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                    </svg>
-                    <p class="text-gray-700 font-semibold">Respuesta Inmediata</p>
-                </div>
-                <div class="text-center">
-                    <svg class="w-12 h-12 mx-auto mb-2 text-cyan-wewash" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-label="Shield Check - Years of experience">
-                        <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
-                        <path d="m9 12 2 2 4-4"/>
-                    </svg>
-                    <p class="text-gray-700 font-semibold">Años de experiencia</p>
-                </div>
-                <div class="text-center">
-                    <svg class="w-12 h-12 mx-auto mb-2 text-cyan-wewash" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                    </svg>
-                    <p class="text-gray-700 font-semibold">Recomendado</p>
-                </div>
+    <!-- ============== SOCIAL PROOF BAR ============== -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6 md:px-12 max-w-7xl">
+            <div class="text-center mb-6 reveal">
+                <p class="text-gray-500 text-sm font-medium">Síguenos en redes para ver nuestro trabajo</p>
             </div>
+            <div class="flex flex-wrap justify-center gap-4 reveal">
+                <a href="https://www.instagram.com/wewashmty" target="_blank"
+                   class="flex items-center gap-2 px-6 py-3 rounded-full border border-gray-200 text-gray-600 hover:border-primary hover:text-primary transition-all text-sm font-medium">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                    </svg>
+                    @wewashmty
+                </a>
+                <a href="https://www.facebook.com/wewashmty" target="_blank"
+                   class="flex items-center gap-2 px-6 py-3 rounded-full border border-gray-200 text-gray-600 hover:border-primary hover:text-primary transition-all text-sm font-medium">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                    </svg>
+                    WeWash MTY
+                </a>
+            </div>
+        </div>
+    </section>
 
-            <!-- Testimonios -->
-            <div class="mb-16">
-                <h2 class="text-4xl md:text-4xl font-bold text-gray-wewash text-center mb-12">
-                    Clientes de Monterrey Recomiendan WeWash
-                </h2>
-                <p class="text-center text-gray-600 mb-12">
-                    Descubre qué dicen sobre nuestros servicios de limpieza profesional
-                </p>
-
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Testimonio 1 -->
-                    <div class="testimonial-card">
-                        <div class="flex justify-center mb-4">
-                            <svg class="w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <div class="flex justify-center mb-4" aria-label="5-star rating">
-                            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        </div>
-                        <p class="text-gray-700 italic mb-4 leading-relaxed text-sm">
-                            "Tenía un colchón con manchas difíciles. Creí que no se quitaban. WeWash lo dejó impecable. Y rápido. Muy recomendado."
-                        </p>
-                        <p class="font-semibold text-gray-wewash">Sandra G.</p>
-                        <p class="text-xs text-gray-500">Santa Catarina</p>
+    <!-- ============== LEAD CAPTURE / CTA ============== -->
+    <section id="cotizar" class="lead-form-section py-20 md:py-28">
+        <div class="relative z-10 container mx-auto px-6 md:px-12 max-w-7xl">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left: Info -->
+                <div class="reveal-left">
+                    <div class="badge-pill bg-white/10 text-accent mb-6">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 360 362">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M307.546 52.5655C273.709 18.685 228.706 0.0171895 180.756 0C81.951 0 1.53846 80.404 1.50408 179.235C1.48689 210.829 9.74646 241.667 25.4319 268.844L0 361.736L95.0236 336.811C121.203 351.096 150.683 358.616 180.679 358.625H180.756C279.544 358.625 359.966 278.212 360 179.381C360.017 131.483 341.392 86.4547 307.546 52.5741V52.5655Z"/>
+                        </svg>
+                        Cotización Gratis
                     </div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6 leading-tight">
+                        Obtén tu cotización<br>
+                        <span class="text-accent">sin compromiso</span>
+                    </h2>
+                    <p class="text-white/60 mb-8 leading-relaxed">
+                        Déjanos tus datos y te contactamos por WhatsApp con tu cotización personalizada. Sin sorpresas, sin letras chicas.
+                    </p>
 
-                    <!-- Testimonio 2 -->
-                    <div class="testimonial-card">
-                        <div class="flex justify-center mb-4">
-                            <svg class="w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
-                            </svg>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3 text-white/70">
+                            <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <span class="text-sm">Respuesta inmediata por WhatsApp</span>
                         </div>
-                        <div class="flex justify-center mb-4" aria-label="5-star rating">
-                            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <div class="flex items-center gap-3 text-white/70">
+                            <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <span class="text-sm">Precio cerrado, sin costos ocultos</span>
                         </div>
-                        <p class="text-gray-700 italic mb-4 leading-relaxed text-sm">
-                            "Limpian con cuidado. Mi sofá tiene como 8 años y ahora se ve como nuevo. 100% recomendados."
-                        </p>
-                        <p class="font-semibold text-gray-wewash">Luis M.</p>
-                        <p class="text-xs text-gray-500">Monterrey</p>
-                    </div>
-
-                    <!-- Testimonio 3 -->
-                    <div class="testimonial-card">
-                        <div class="flex justify-center mb-4">
-                            <svg class="w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
-                            </svg>
+                        <div class="flex items-center gap-3 text-white/70">
+                            <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                    <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+                                    <path d="m9 12 2 2 4-4"/>
+                                </svg>
+                            </div>
+                            <span class="text-sm">Garantía de satisfacción incluida</span>
                         </div>
-                        <div class="flex justify-center mb-4" aria-label="5-star rating">
-                            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        </div>
-                        <p class="text-gray-700 italic mb-4 leading-relaxed text-sm">
-                            "Contacté por WhatsApp y me contestaron de volada. Casi de inmediato ya tenia mi cotizacion. El servicio fue rápido y limpio."
-                        </p>
-                        <p class="font-semibold text-gray-wewash">Patricia L.</p>
-                        <p class="text-xs text-gray-500">San Nicolás</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Social proof -->
-            <div class="text-center bg-white rounded-lg p-8">
-                <p class="text-lg text-gray-700 mb-6">
-                    <strong>Síguenos en redes sociales</strong> para ver más casos de éxito
-                </p>
-                <div class="flex justify-center gap-4 flex-wrap">
-                    <a href="https://www.instagram.com/wewashmty" target="_blank" class="btn-secondary">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-label="Instagram icon">
-                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-                        </svg>
-                        Instagram @wewashmty
-                    </a>
-                    <a href="https://www.facebook.com/wewashmty" target="_blank" class="btn-secondary">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-label="Facebook icon">
-                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-                        </svg>
-                        Facebook WeWash
-                    </a>
+                <!-- Right: Form -->
+                <div class="reveal-right">
+                    <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                        <h3 class="text-white font-bold text-xl mb-6 font-poppins">Solicita tu cotización</h3>
+                        <form id="leadForm" class="space-y-4">
+                            <div>
+                                <input type="text" placeholder="Tu nombre" class="form-input" required>
+                            </div>
+                            <div>
+                                <input type="tel" placeholder="WhatsApp (10 dígitos)" class="form-input" required>
+                            </div>
+                            <div>
+                                <select class="form-input" required>
+                                    <option value="" disabled selected>¿Qué servicio necesitas?</option>
+                                    <option value="colchones">Limpieza de Colchones</option>
+                                    <option value="salas">Limpieza de Salas</option>
+                                    <option value="tapetes">Lavado de Tapetes</option>
+                                    <option value="otro">Otro servicio</option>
+                                </select>
+                            </div>
+                            <div>
+                                <textarea placeholder="Describe brevemente lo que necesitas (opcional)" class="form-input" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary w-full justify-center text-base">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 360 362">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M307.546 52.5655C273.709 18.685 228.706 0.0171895 180.756 0C81.951 0 1.53846 80.404 1.50408 179.235C1.48689 210.829 9.74646 241.667 25.4319 268.844L0 361.736L95.0236 336.811C121.203 351.096 150.683 358.616 180.679 358.625H180.756C279.544 358.625 359.966 278.212 360 179.381C360.017 131.483 341.392 86.4547 307.546 52.5741V52.5655Z"/>
+                                </svg>
+                                Enviar y Cotizar por WhatsApp
+                            </button>
+                        </form>
+                        <p class="text-white/30 text-xs mt-4 text-center">
+                            Tus datos solo se usan para contactarte. Sin spam.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 4: PROCESO DE TRABAJO (OPTIMIZADO - 3 PASOS) -->
-    <section id="proceso" class="py-20 bg-white">
-        <div class="container mx-auto px-4 md:px-8 max-w-6xl">
+    <!-- ============== FAQ ============== -->
+    <section id="faq" class="py-20 md:py-28 bg-white">
+        <div class="container mx-auto px-6 md:px-12 max-w-3xl">
+            <!-- Section Header -->
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-4xl font-bold text-gray-wewash mb-4">
-                    ¿Cómo funciona?
+                <div class="badge-pill bg-primary/5 text-primary mx-auto mb-4 reveal">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Preguntas Frecuentes
+                </div>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-gray-wewash mb-4 reveal delay-1">
+                    ¿Tienes <span class="text-primary">Dudas</span>?
                 </h2>
-                <p class="text-lg md:text-xl text-gray-600 subtitle">
-                    3 pasos simples para tu mueble perfecto
+                <p class="text-gray-500 text-lg reveal delay-2">
+                    Aquí resolvemos las más comunes
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-4 items-stretch">
-                <!-- Paso 1 -->
-                <div class="process-step">
-                    <div class="flex justify-center mb-4">
-                        <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-wewash text-white font-bold text-lg">1</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-cyan-wewash mb-2">ENVÍA FOTOS</h4>
-                    <p class="text-sm text-gray-700">
-                        Manda 2-3 fotos de tu mueble por WhatsApp
-                    </p>
-                </div>
-
-                <!-- Flecha -->
-                <div class="hidden md:flex items-center justify-center">
-                    <svg class="w-6 h-6 text-cyan-wewash" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </div>
-
-                <!-- Paso 2 -->
-                <div class="process-step">
-                    <div class="flex justify-center mb-4">
-                        <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-wewash text-white font-bold text-lg">2</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-cyan-wewash mb-2">COTIZACIÓN CLARA</h4>
-                    <p class="text-sm text-gray-700">
-                        Cotización rápida y exacta, sin sorpresas
-                    </p>
-                </div>
-
-                <!-- Flecha -->
-                <div class="hidden md:flex items-center justify-center">
-                    <svg class="w-6 h-6 text-cyan-wewash" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </div>
-
-                <!-- Paso 3 -->
-                <div class="process-step">
-                    <div class="flex justify-center mb-4">
-                        <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-green-wewash text-white font-bold text-lg">3</span>
-                    </div>
-                    <h4 class="text-lg font-bold text-green-wewash mb-2">GARANTIA</h4>
-                    <p class="text-sm text-gray-700">
-                        Hasta 24 horas post servicio
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN 5: FAQ -->
-    <section id="faq" class="py-20 bg-gray-light">
-        <div class="container mx-auto px-4 md:px-8 max-w-4xl">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-4xl font-bold text-gray-wewash mb-4">
-                    Preguntas Frecuentes Sobre Limpieza de Muebles
-                </h2>
-                <p class="text-lg md:text-xl text-gray-600 subtitle">
-                    Respuestas sobre nuestros servicios en Monterrey
-                </p>
-            </div>
-
-            <div class="space-y-0 bg-white rounded-lg p-6">
-                <!-- FAQ 1 -->
-                <div class="faq-item">
-                    <div class="faq-toggle" onclick="toggleFAQ(this)">
-                        <h3 class="text-lg font-bold text-gray-wewash">
+            <!-- FAQ Items -->
+            <div class="space-y-3 reveal">
+                <div class="faq-item-v3">
+                    <div class="faq-toggle-v3" onclick="toggleFAQ(this)">
+                        <h3 class="text-base font-semibold text-gray-wewash pr-4">
                             ¿Cuál es el precio de limpieza de colchones en Monterrey?
                         </h3>
-                        <span class="text-2xl text-cyan-wewash">+</span>
+                        <svg class="faq-chevron w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                        </svg>
                     </div>
-                    <div class="faq-content">
-                        <p class="text-gray-700">
+                    <div class="faq-content-v3">
+                        <p class="px-6 pb-5 text-gray-500 text-sm leading-relaxed">
                             El precio varía según tipo y tamaño. Un colchón individual comienza desde un precio accesible, matrimonial y queen tienen diferentes tarifas. Enviando 2-3 fotos por WhatsApp, te daremos una cotización exacta sin costo, sin sorpresas después.
                         </p>
                     </div>
                 </div>
 
-                <!-- FAQ 2 -->
-                <div class="faq-item">
-                    <div class="faq-toggle" onclick="toggleFAQ(this)">
-                        <h3 class="text-lg font-bold text-gray-wewash">
+                <div class="faq-item-v3">
+                    <div class="faq-toggle-v3" onclick="toggleFAQ(this)">
+                        <h3 class="text-base font-semibold text-gray-wewash pr-4">
                             ¿Cuánto tiempo tarda la limpieza de salas y colchones?
                         </h3>
-                        <span class="text-2xl text-cyan-wewash">+</span>
+                        <svg class="faq-chevron w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                        </svg>
                     </div>
-                    <div class="faq-content">
-                        <p class="text-gray-700">
+                    <div class="faq-content-v3">
+                        <p class="px-6 pb-5 text-gray-500 text-sm leading-relaxed">
                             La mayoría de servicios de limpieza se completan en 2-3 horas máximo. Todo depende de las condiciones en las que se encuentre tu colchón o sala.
                         </p>
                     </div>
                 </div>
 
-                <!-- FAQ 3 -->
-                <div class="faq-item">
-                    <div class="faq-toggle" onclick="toggleFAQ(this)">
-                        <h3 class="text-lg font-bold text-gray-wewash">
-                            ¿Es segura la limpieza profesional para mis muebles y colchones?
+                <div class="faq-item-v3">
+                    <div class="faq-toggle-v3" onclick="toggleFAQ(this)">
+                        <h3 class="text-base font-semibold text-gray-wewash pr-4">
+                            ¿Es segura la limpieza profesional para mis muebles?
                         </h3>
-                        <span class="text-2xl text-cyan-wewash">+</span>
+                        <svg class="faq-chevron w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                        </svg>
                     </div>
-                    <div class="faq-content">
-                        <p class="text-gray-700">
+                    <div class="faq-content-v3">
+                        <p class="px-6 pb-5 text-gray-500 text-sm leading-relaxed">
                             Sí. Usamos productos seguros y certificados con técnicas profesionales que protegen telas delicadas.
                         </p>
                     </div>
                 </div>
 
-                <!-- FAQ 4 -->
-                <div class="faq-item">
-                    <div class="faq-toggle" onclick="toggleFAQ(this)">
-                        <h3 class="text-lg font-bold text-gray-wewash">
-                            ¿Dónde atienden servicios de limpieza en el área metropolitana de Monterrey?
+                <div class="faq-item-v3">
+                    <div class="faq-toggle-v3" onclick="toggleFAQ(this)">
+                        <h3 class="text-base font-semibold text-gray-wewash pr-4">
+                            ¿Dónde atienden en el área metropolitana de Monterrey?
                         </h3>
-                        <span class="text-2xl text-cyan-wewash">+</span>
+                        <svg class="faq-chevron w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                        </svg>
                     </div>
-                    <div class="faq-content">
-                        <p class="text-gray-700">
-                            Sí, atendemos toda el área metropolitana incluyendo: Monterrey, Guadalupe, San Pedro Garza García, San Nicolás, Santa Catarina, Apodaca, Carretera Nacional, Juárez y Escobedo. Consulta disponibilidad sin compromiso por WhatsApp.
+                    <div class="faq-content-v3">
+                        <p class="px-6 pb-5 text-gray-500 text-sm leading-relaxed">
+                            Atendemos toda el área metropolitana: Monterrey, Guadalupe, San Pedro Garza García, San Nicolás, Santa Catarina, Apodaca, Carretera Nacional, Juárez y Escobedo.
                         </p>
                     </div>
                 </div>
 
-                <!-- FAQ 5 -->
-                <div class="faq-item">
-                    <div class="faq-toggle" onclick="toggleFAQ(this)">
-                        <h3 class="text-lg font-bold text-gray-wewash">
-                            ¿Qué métodos de pago aceptan para los servicios de limpieza?
+                <div class="faq-item-v3">
+                    <div class="faq-toggle-v3" onclick="toggleFAQ(this)">
+                        <h3 class="text-base font-semibold text-gray-wewash pr-4">
+                            ¿Qué métodos de pago aceptan?
                         </h3>
-                        <span class="text-2xl text-cyan-wewash">+</span>
+                        <svg class="faq-chevron w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                        </svg>
                     </div>
-                    <div class="faq-content">
-                        <p class="text-gray-700">
-                            Aceptamos: efectivo y transferencia bancaria. El pago se realiza al terminar el servicio. No requerimos prepago ni depósito. Cero riesgos.
+                    <div class="faq-content-v3">
+                        <p class="px-6 pb-5 text-gray-500 text-sm leading-relaxed">
+                            Aceptamos efectivo y transferencia bancaria. El pago se realiza al terminar el servicio. No requerimos prepago ni depósito.
                         </p>
                     </div>
                 </div>
 
-                <!-- FAQ 6 -->
-                <div class="faq-item">
-                    <div class="faq-toggle" onclick="toggleFAQ(this)">
-                        <h3 class="text-lg font-bold text-gray-wewash">
-                            ¿Cuál es la garantía de satisfacción en los servicios de limpieza?
+                <div class="faq-item-v3">
+                    <div class="faq-toggle-v3" onclick="toggleFAQ(this)">
+                        <h3 class="text-base font-semibold text-gray-wewash pr-4">
+                            ¿Cuál es la garantía de satisfacción?
                         </h3>
-                        <span class="text-2xl text-cyan-wewash">+</span>
+                        <svg class="faq-chevron w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                        </svg>
                     </div>
-                    <div class="faq-content">
-                        <p class="text-gray-700">
-                            Cada servicio incluye garantía contra cualquier aspecto relacionado a mal secado o mal enjuagado (NO APLICA EN MANCHAS PERMANENTES).                        			</p>
+                    <div class="faq-content-v3">
+                        <p class="px-6 pb-5 text-gray-500 text-sm leading-relaxed">
+                            Cada servicio incluye garantía contra cualquier aspecto relacionado a mal secado o mal enjuagado (no aplica en manchas permanentes).
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ============== FOOTER ============== -->
+    <footer class="footer-gradient text-white pt-16 pb-8">
+        <div class="container mx-auto px-6 md:px-12 max-w-7xl">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="text-center md:text-left flex flex-col items-center md:items-start">
+                    <img src="images/We Wash Logo.png" alt="WeWash - Limpieza Profesional de Colchones y Salas en Monterrey" class="h-32 md:h-40 mb-6 brightness-125 drop-shadow-lg">
+                    <p class="text-white/50 text-sm leading-relaxed max-w-xs">
+                        Especialistas en limpieza profunda de colchones, salas y tapetes en Monterrey y área metropolitana.
+                    </p>
+                </div>
 
-    <!-- FOOTER -->
-    <footer class="bg-gray-wewash text-white py-8">
-        <div class="container mx-auto px-4 md:px-8 max-w-6xl">
-            <!-- Main Brand Section -->
-            <div class="text-center mb-6">
-                <img src="images/We Wash Logo.png" alt="WeWash Logo" class="h-40 md:h-48 mx-auto brightness-125 drop-shadow-lg" />
-            </div>
-
-            <!-- Contact & Social Section -->
-            <div class="grid md:grid-cols-2 gap-8 mb-6 pb-6 border-b border-gray-700">
-                <!-- Contacto -->
+                <!-- Contact -->
                 <div class="text-center md:text-left">
-                    <h4 class="font-bold mb-3 text-sm">Contacto</h4>
-                    <ul class="space-y-2 text-sm">
+                    <h4 class="font-bold text-sm mb-4 text-white/80 uppercase tracking-wider font-poppins">Contacto</h4>
+                    <ul class="space-y-3 flex flex-col items-center md:items-start">
                         <li>
-                            <a href="https://wa.me/528186597675" target="_blank" class="hover:text-cyan-wewash transition inline-flex items-center gap-2 text-gray-300">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 360 362" aria-label="WhatsApp icon">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M307.546 52.5655C273.709 18.685 228.706 0.0171895 180.756 0C81.951 0 1.53846 80.404 1.50408 179.235C1.48689 210.829 9.74646 241.667 25.4319 268.844L0 361.736L95.0236 336.811C121.203 351.096 150.683 358.616 180.679 358.625H180.756C279.544 358.625 359.966 278.212 360 179.381C360.017 131.483 341.392 86.4547 307.546 52.5741V52.5655ZM180.756 328.354H180.696C153.966 328.346 127.744 321.16 104.865 307.589L99.4242 304.358L43.034 319.149L58.0834 264.168L54.5423 258.53C39.6304 234.809 31.749 207.391 31.7662 179.244C31.8006 97.1036 98.6334 30.2707 180.817 30.2707C220.61 30.2879 258.015 45.8015 286.145 73.9665C314.276 102.123 329.755 139.562 329.738 179.364C329.703 261.513 262.871 328.346 180.756 328.346V328.354ZM262.475 216.777C257.997 214.534 235.978 203.704 231.869 202.209C227.761 200.713 224.779 199.966 221.796 204.452C218.814 208.939 210.228 219.029 207.615 222.011C205.002 225.002 202.389 225.372 197.911 223.128C193.434 220.885 179.003 216.158 161.891 200.902C148.578 189.024 139.587 174.362 136.975 169.875C134.362 165.389 136.7 162.965 138.934 160.739C140.945 158.728 143.412 155.505 145.655 152.892C147.899 150.279 148.638 148.406 150.133 145.423C151.629 142.432 150.881 139.82 149.764 137.576C148.646 135.333 139.691 113.287 135.952 104.323C132.316 95.5909 128.621 96.777 125.879 96.6309C123.266 96.5019 120.284 96.4762 117.293 96.4762C114.302 96.4762 109.454 97.5935 105.346 102.08C101.238 106.566 89.6691 117.404 89.6691 139.441C89.6691 161.478 105.716 182.785 107.959 185.776C110.202 188.767 139.544 234.001 184.469 253.408C195.153 258.023 203.498 260.782 210.004 262.845C220.731 266.257 230.494 265.776 238.212 264.624C246.816 263.335 264.71 253.786 268.44 243.326C272.17 232.866 272.17 223.893 271.053 222.028C269.936 220.163 266.945 219.037 262.467 216.794L262.475 216.777Z"/>
+                            <a href="https://wa.me/528186597675" target="_blank" class="text-white/50 hover:text-accent transition text-sm inline-flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 360 362">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M307.546 52.5655C273.709 18.685 228.706 0.0171895 180.756 0C81.951 0 1.53846 80.404 1.50408 179.235C1.48689 210.829 9.74646 241.667 25.4319 268.844L0 361.736L95.0236 336.811C121.203 351.096 150.683 358.616 180.679 358.625H180.756C279.544 358.625 359.966 278.212 360 179.381C360.017 131.483 341.392 86.4547 307.546 52.5741V52.5655Z"/>
                                 </svg>
-                                <span>+52 818-659-7675</span>
+                                +52 818-659-7675
                             </a>
                         </li>
                         <li>
-                            <a href="mailto:contacto@wewash.mx" class="hover:text-cyan-wewash transition inline-flex items-center gap-2 text-gray-300">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Email icon">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            <a href="mailto:contacto@wewash.mx" class="text-white/50 hover:text-accent transition text-sm inline-flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                 </svg>
-                                <span>contacto@wewash.mx</span>
+                                contacto@wewash.mx
                             </a>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Síguenos -->
-                <div class="text-center md:text-right">
-                    <h4 class="font-bold mb-3 text-sm">Síguenos</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li>
-                            <a href="https://www.instagram.com/wewashmty" target="_blank" class="hover:text-cyan-wewash transition inline-flex items-center gap-2 text-gray-300">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-label="Instagram icon">
-                                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-                                </svg>
-                                <span>Instagram</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.facebook.com/wewashmty" target="_blank" class="hover:text-cyan-wewash transition inline-flex items-center gap-2 text-gray-300">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-label="Facebook icon">
-                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-                                </svg>
-                                <span>Facebook</span>
-                            </a>
-                        </li>
+                <!-- Social + Nav -->
+                <div class="text-center md:text-left">
+                    <h4 class="font-bold text-sm mb-4 text-white/80 uppercase tracking-wider font-poppins">Síguenos</h4>
+                    <div class="flex gap-3 justify-center md:justify-start mb-6">
+                        <a href="https://www.instagram.com/wewashmty" target="_blank"
+                           class="w-10 h-10 rounded-lg bg-white/5 hover:bg-accent/20 flex items-center justify-center transition text-white/50 hover:text-accent">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/wewashmty" target="_blank"
+                           class="w-10 h-10 rounded-lg bg-white/5 hover:bg-accent/20 flex items-center justify-center transition text-white/50 hover:text-accent">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <h4 class="font-bold text-sm mb-4 text-white/80 uppercase tracking-wider font-poppins">Navegación</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#servicios" class="text-white/50 hover:text-accent transition text-sm">Servicios</a></li>
+                        <li><a href="#proceso" class="text-white/50 hover:text-accent transition text-sm">Proceso</a></li>
+                        <li><a href="#cotizar" class="text-white/50 hover:text-accent transition text-sm">Cotizar</a></li>
+                        <li><a href="#faq" class="text-white/50 hover:text-accent transition text-sm">Preguntas Frecuentes</a></li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Copyright -->
-            <div class="text-center">
-                <p class="text-gray-400 text-xs">
+            <!-- Bottom bar -->
+            <div class="border-t border-white/10 pt-8 text-center">
+                <p class="text-white/30 text-xs mb-1">
                     &copy; 2026 WeWash. Limpieza profesional en Monterrey. Todos los derechos reservados.
+                </p>
+                <p class="text-white/20 text-xs">
+                    Monterrey, Nuevo León, México
                 </p>
             </div>
         </div>
     </footer>
 
-    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <!-- ============== FLOATING WHATSAPP ============== -->
     <a href="https://wa.me/528186597675?text=Hola%2C%20quiero%20cotizar%20mis%20servicios%20de%20limpieza"
        target="_blank"
-       class="floating-whatsapp btn-whatsapp shadow-lg"
+       class="btn-whatsapp-float"
        title="Enviar mensaje por WhatsApp"
-       aria-label="WhatsApp floating button - Contact us">
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 360 362">
+       aria-label="WhatsApp">
+        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 360 362">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M307.546 52.5655C273.709 18.685 228.706 0.0171895 180.756 0C81.951 0 1.53846 80.404 1.50408 179.235C1.48689 210.829 9.74646 241.667 25.4319 268.844L0 361.736L95.0236 336.811C121.203 351.096 150.683 358.616 180.679 358.625H180.756C279.544 358.625 359.966 278.212 360 179.381C360.017 131.483 341.392 86.4547 307.546 52.5741V52.5655ZM180.756 328.354H180.696C153.966 328.346 127.744 321.16 104.865 307.589L99.4242 304.358L43.034 319.149L58.0834 264.168L54.5423 258.53C39.6304 234.809 31.749 207.391 31.7662 179.244C31.8006 97.1036 98.6334 30.2707 180.817 30.2707C220.61 30.2879 258.015 45.8015 286.145 73.9665C314.276 102.123 329.755 139.562 329.738 179.364C329.703 261.513 262.871 328.346 180.756 328.346V328.354ZM262.475 216.777C257.997 214.534 235.978 203.704 231.869 202.209C227.761 200.713 224.779 199.966 221.796 204.452C218.814 208.939 210.228 219.029 207.615 222.011C205.002 225.002 202.389 225.372 197.911 223.128C193.434 220.885 179.003 216.158 161.891 200.902C148.578 189.024 139.587 174.362 136.975 169.875C134.362 165.389 136.7 162.965 138.934 160.739C140.945 158.728 143.412 155.505 145.655 152.892C147.899 150.279 148.638 148.406 150.133 145.423C151.629 142.432 150.881 139.82 149.764 137.576C148.646 135.333 139.691 113.287 135.952 104.323C132.316 95.5909 128.621 96.777 125.879 96.6309C123.266 96.5019 120.284 96.4762 117.293 96.4762C114.302 96.4762 109.454 97.5935 105.346 102.08C101.238 106.566 89.6691 117.404 89.6691 139.441C89.6691 161.478 105.716 182.785 107.959 185.776C110.202 188.767 139.544 234.001 184.469 253.408C195.153 258.023 203.498 260.782 210.004 262.845C220.731 266.257 230.494 265.776 238.212 264.624C246.816 263.335 264.71 253.786 268.44 243.326C272.17 232.866 272.17 223.893 271.053 222.028C269.936 220.163 266.945 219.037 262.467 216.794L262.475 216.777Z"/>
         </svg>
     </a>
 
-    <!-- JavaScript -->
+    <!-- ============== JAVASCRIPT ============== -->
     <script>
-        // FAQ Toggle
-        function toggleFAQ(element) {
-            const parent = element.parentElement;
-            parent.classList.toggle('active');
+        // ===== Navbar scroll effect =====
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
 
-            // Cambiar el símbolo
-            const icon = element.querySelector('span:last-child');
-            icon.textContent = parent.classList.contains('active') ? '−' : '+';
+        // ===== Mobile menu =====
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('open');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+        });
+
+        function closeMobile() {
+            hamburgerBtn.classList.remove('active');
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
         }
 
-        // Smooth scroll para links internos
+        // ===== Scroll reveal animations =====
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ===== Animated counters =====
+        const counters = document.querySelectorAll('[data-target]');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.target);
+                    const suffix = el.dataset.suffix || '+';
+                    let current = 0;
+                    const increment = target / 60;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        el.textContent = Math.floor(current) + suffix;
+                    }, 25);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(c => counterObserver.observe(c));
+
+        // ===== FAQ toggle =====
+        function toggleFAQ(element) {
+            const parent = element.parentElement;
+            // Close others
+            document.querySelectorAll('.faq-item-v3').forEach(item => {
+                if (item !== parent) item.classList.remove('active');
+            });
+            parent.classList.toggle('active');
+        }
+
+        // ===== Smooth scroll =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
-                if (href !== '#' && !href.includes('wa.me') && !href.includes('mailto')) {
+                if (href !== '#') {
                     e.preventDefault();
                     const target = document.querySelector(href);
                     if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
+                        const offset = 80;
+                        const position = target.getBoundingClientRect().top + window.scrollY - offset;
+                        window.scrollTo({ top: position, behavior: 'smooth' });
                     }
                 }
             });
         });
 
-        console.log('WeWash V2 Landing Page Loaded - Optimizado para conversión');
+        // ===== Lead form → WhatsApp redirect =====
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const inputs = this.querySelectorAll('input, select, textarea');
+            const name = inputs[0].value;
+            const phone = inputs[1].value;
+            const service = inputs[2].value;
+            const description = inputs[3].value;
+
+            let message = `Hola, soy ${name}.\n`;
+            message += `Mi WhatsApp: ${phone}\n`;
+            message += `Servicio: ${service}\n`;
+            if (description) message += `Detalle: ${description}\n`;
+            message += `Quisiera una cotización por favor.`;
+
+            const encoded = encodeURIComponent(message);
+            window.open(`https://wa.me/528186597675?text=${encoded}`, '_blank');
+        });
+
+        console.log('WeWash V3 - Premium Landing Page Loaded');
     </script>
 </body>
 </html>
